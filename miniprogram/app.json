@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/user/index",
+    "pages/index/index",
+   
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundColor": "",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "信息采集",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

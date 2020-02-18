@@ -1,0 +1,70 @@
+<!-- <import src="../../tmpl/tmpl/tmpl.wxml"></import> -->
+<form bindsubmit="submit" id="form01">
+  <!-- 学校 -->
+  <block wx:for="{{messages}}" wx:key="unique">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">{{item.tle}}</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" name="{{item.name}}" placeholder="请输入{{item.tle}}" value='{{item.value}}' />
+      </view>
+    </view>
+  </block>
+  <!-- 保存数据 -->
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" form-type="submit" data-type="1">保存</button>
+  </view>
+  <!-- 修改信息 -->
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="warn" form-type="submit" data-type="2">提交更新</button>
+  </view>
+</form>
+<!-- 点击增加元素显示 -->
+<view class="model" catchtouchmove='preventTouchMove' wx:if='{{showModal}}'></view>
+<view class="modalDlg" catchtouchmove='preventTouchMove' wx:if='{{showModal}}'>
+  <view class='windowRow'>
+    <text class='userTitle'>标题</text>
+    <view class='back' bindtap='back'>返回</view>
+  </view>
+  <view class='wishName'>
+    <input bindinput='wish_put' focus="{{true}}" placeholder='请输入内容' class='wish_put'></input>
+  </view>
+  <view class='wishName'>
+    <input bindinput='wish_put2' placeholder='请输入对应英文' class='wish_put'></input>
+  </view>
+  <view class='wishbnt'>
+    <button class='wishbnt_bt' bindtap='ok' type="primary">确定</button>
+  </view>
+</view>
+<!-- 页面载入弹出 -->
+<view class="model" catchtouchmove='preventTouchMove' wx:if='{{loadModal}}'></view>
+<view class="modalDlg" catchtouchmove='preventTouchMove' wx:if='{{loadModal}}'>
+  <view class='windowRow'>
+    <text class='userTitle'>标题</text>
+    <view class='back' bindtap='back'>返回</view>
+  </view>
+  <view class='wishName'>
+    <input bindinput='wish_put_table' focus="{{true}}" placeholder='请输入表名' class='wish_put'></input>
+  </view>
+  <view class='wishbnt'>
+    <button class='wishbnt_bt' bindtap='createTable' type="primary">确定</button>
+  </view>
+</view>
+<!-- 增加元素 -->
+<view wx:if="{{!disable}}" class="weui-btn-area" hover-class="none" hover-stop-propagation="false">
+  <button class="weui-btn" type="warn" disabled="{{disable}}" bindtap="addElem">增加元素</button>
+</view>
+<view wx:if="{{!disable}}" class="weui-btn-area" hover-class="none" hover-stop-propagation="false">
+  <button class="weui-btn" type="warn" bindtap="clearDB" style="font-size:15px">清除模板和表格数据</button>
+</view>
+<view wx:if="{{!disable}}" class="weui-btn-area" hover-class="none" hover-stop-propagation="false">
+  <button class="weui-btn" type="warn" bindtap="productTable" style="font-size:15px">
+    生成表格({{dataCount}})
+  </button>
+</view>
+<view wx:if="{{!disable}}" class="weui-btn-area" hover-class="none" hover-stop-propagation="false">
+  <button class="weui-btn" type="warn" bindtap="downloadTable" style="font-size:15px">
+    复制下载链接
+  </button>
+</view>

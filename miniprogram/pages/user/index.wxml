@@ -1,0 +1,49 @@
+<!-- index.wxml -->
+<view class="container">
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">请先登录!</view>
+  <view class="userinfo">
+    <block wx:if="{{hasUserInfo}}">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+    <block wx:else>
+      <button bindtap="changeFlag2" open-type="getUserInfo" type="warn" bindgetuserinfo="getUserInfo" style="margin-bottom:20px;">
+        管理员登录
+      </button>
+    </block>
+    <block wx:if="{{flag2}}">
+      <button bindtap="confirmPhone" type="warn" pass>
+        验证手机号
+      </button>
+    </block>
+  </view>
+</view>
+<view class="userfunc">
+  <view class="widget-box">
+    <view class="widget__item">
+      <view class="widget__list">
+        <view bindtap="submitForm" class="widget">
+          <text class="widget__name">填写个人信息</text>
+          <image class="widget__arrow" src="../../images/arrow-right.png" background-size="cover" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="model" catchtouchmove='preventTouchMove' wx:if='{{showModal}}'></view>
+<view class="modalDlg" catchtouchmove='preventTouchMove' wx:if='{{showModal}}'>
+  <view class='windowRow'>
+    <text class='userTitle'>验证手机号</text>
+    <view class='back' bindtap='back'>返回</view>
+  </view>
+  <view class='wishName'>
+    <input bindinput='wish_put_user' focus="{{true}}" placeholder='请输入账号/手机号' class='wish_put'></input>
+  </view>
+  <view class='wishName'>
+    <input bindinput='wish_put_pwd' placeholder='请输入密码' class='wish_put' type="password"></input>
+  </view>
+  <view class='wishbnt'>
+    <button class='wishbnt_bt' bindtap='ok' type="primary">确定</button>
+  </view>
+</view>

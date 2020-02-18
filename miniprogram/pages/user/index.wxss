@@ -1,0 +1,135 @@
+/**index.wxss**/
+.userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+}
+
+.userinfo-avatar {
+    width: 128rpx;
+    height: 128rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+}
+
+._login {
+    margin-bottom: 20px;
+}
+
+.widget__item {
+    background-color: #FFFFFF;
+    overflow: hidden;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.widget {
+    position: relative;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.widget__arrow {
+    position: absolute;
+    top: 14px;
+    right: 22px;
+    width: 8px;
+    height: 16px;
+}
+
+.widget__line {
+    content: " ";
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+    right: 20px;
+    height: 1rpx;
+    background-color: #DFDFDF;
+}
+
+.widget-box {
+    display: block !important;
+}
+
+.model {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 999;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+  }
+  
+  .modalDlg {
+    width: 70%;
+    position: fixed;
+    top: 350rpx;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .windowRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 110rpx;
+    width: 100%;
+  }
+  
+  .back {
+    text-align: center;
+    color: #f7a6a2;
+    font-size: 30rpx;
+    margin: 30rpx;
+  }
+  
+  .userTitle {
+    font-size: 30rpx;
+    color: #666;
+    margin: 30rpx;
+  }
+  
+  .wishName {
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+    margin-bottom: 30rpx;
+  }
+  
+  .wish_put {
+    width: 80%;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 10rpx;
+    padding-left: 10rpx;
+  }
+  
+  .wishbnt {
+    width: 100%;
+    font-size: 30rpx;
+    margin-bottom: 30rpx;
+  }
+  
+  
+  .wishbnt_bt {
+    width: 50%;
+    background-color: #f7a6a2;
+    color: #fbf1e8;
+    text-align: center;
+    font-size: 30rpx;
+    border: 0;
+  }
