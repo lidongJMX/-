@@ -70,7 +70,7 @@ Page({
               }
               let timesTemp = Date.parse(new Date())
               // // 有效期一个小时
-              let expirydate = timesTemp + 20000;
+              let expirydate = timesTemp + 1000 * 60 * 60 * 24;
               // wx.setStorageSync("open_id",res.result.openid)6
               wx.setStorageSync("expiry_date", expirydate)
             },
