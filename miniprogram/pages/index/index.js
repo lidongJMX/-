@@ -314,7 +314,10 @@ Page({
   },
 
 
-  // 录入信息到数据库
+  /**
+   * 模板创建
+   * 元素重复则不可创建
+   */
   createDatabase: function (res, length) {
     let db = wx.cloud.database()
     // tle,name
