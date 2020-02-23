@@ -174,7 +174,7 @@ Page({
           const db = wx.cloud.database()
           db.collection(app.open_Id)
             .get().then((res) => {
-              console.log("渲染", res.data)
+              // console.log("渲染", res.data)
               that.beforeData(res)
               that.setData({
                 messages: res.data
