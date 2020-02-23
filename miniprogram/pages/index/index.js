@@ -12,8 +12,8 @@ Page({
     messages: [],
     submitMessage: {},
     showModal: false,
-    textV: '',
-    textV2: '',
+    textV: '', //tle
+    textV2: '', // name
     openId: '',
     new_add_id: '', //新添加的元素ID
     classTableName: '',
@@ -314,34 +314,48 @@ Page({
   },
 
 
-  // 创建数据库
+  // 录入信息到数据库
   createDatabase: function (res, length) {
     let db = wx.cloud.database()
-    db.collection(app.open_Id).add({
-      data: {
-        tle: this.data.textV,
-        name: this.data.textV2,
-        value: "",
-        unique: "unique_" + length
-      }
-    }).then((res) => {
-      this.setData({
-        showModal: false,
-        new_add_id: res._id
-      })
-      db.collection(app.open_Id).where({
-          // unique: "unique_" + length
-          _id: this.data.new_add_id
+    // tle,name
+    db.collection(app.open_Id).where({
+      tle: this.data.textV
+    }).get().then(res => {
+      if (res.data.length) {
+        console.log(res.data)
+        return wx.showToast({
+          title: '元素不能重复',
+          duration: 1500
         })
-        .get()
-        .then((reso) => {
-          let newMessages = reso.data //获取的数据库新数组
+      } else {
+        db.collection(app.open_Id).add({
+          data: {
+            tle: this.data.textV,
+            name: this.data.textV2,
+            value: "",
+            unique: "unique_" + length
+          }
+        }).then((res) => {
           this.setData({
             showModal: false,
-            messages: this.data.messages.concat(newMessages)
+            new_add_id: res._id
           })
+          db.collection(app.open_Id).where({
+              // unique: "unique_" + length
+              _id: this.data.new_add_id
+            })
+            .get()
+            .then((reso) => {
+              let newMessages = reso.data //获取的数据库新数组
+              this.setData({
+                showModal: false,
+                messages: this.data.messages.concat(newMessages)
+              })
+            })
         })
+      }
     })
+
   },
 
 
