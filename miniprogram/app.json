@@ -6,8 +6,8 @@
     "pages/logs/logs"
   ],
   "window": {
-    "backgroundColor": "",
-    "backgroundTextStyle": "light",
+    "backgroundColor": "#F3F3F3",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "信息采集",
     "navigationBarTextStyle": "black",

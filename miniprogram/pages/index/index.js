@@ -69,8 +69,8 @@ Page({
                 wx.setStorageSync(key, e.detail.value[key]);
               }
               let timesTemp = Date.parse(new Date())
-              // // 有效期一个小时
-              let expirydate = timesTemp + 1000 * 60 * 60 * 24;
+              // // 有效期一天
+              let expirydate = timesTemp + 1000 * 60;
               // wx.setStorageSync("open_id",res.result.openid)6
               wx.setStorageSync("expiry_date", expirydate)
             },
@@ -161,6 +161,14 @@ Page({
       classTableName: options.classTableName
     })
     app.class_Table_Name = options.classTableName
+    try {
+      var expiryDate = wx.getStorageSync('expiry_date')
+      if ((Date.parse(new Date())) - expiryDate <= 0) {
+        // 如果超时就删除
+      }
+    } catch (e) {
+      // Do something when catch error
+    }
     wx.getStorage({
       key: 'flag',
       success(res) {
@@ -197,6 +205,7 @@ Page({
       }
     })
     that.beforeData()
+
   },
   // 上次填写的数据从storage中取出渲染页面
   beforeData: function (res) {
